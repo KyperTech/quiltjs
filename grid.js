@@ -61,7 +61,7 @@ var grid = {
 };
 function resize(e){
 	var evt = window.event || e;
-	var delta = evt.wheelDelta;
+	var delta = evt.wheelDelta / 20;
 	console.log(delta);
 	cell.width += delta;
 	cell.height += delta;
