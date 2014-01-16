@@ -3,11 +3,14 @@
   	<style type='text/css'>
   		body * {display: block; margin: 0px;}
   		body {display: block; margin: 0px;}
-  		.cell {float: left;}
+  		.cell {float: left; background: rgba(0, 255, 255, 0.5);}
+  		.row {background: rgba(255, 0, 255, 0.5);}
+  		.grid {background: rgba(255, 255, 0, 0.5);}
   	</style>
   </head>
   <body>
     <div id='container'></div>
+    <button onclick='grid.resize(5,5)'></button>
     <script src='./grid.js'></script>
   </body>
 </html>
