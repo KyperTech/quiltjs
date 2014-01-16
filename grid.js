@@ -57,23 +57,27 @@ var grid = {
 		    gridEl.appendChild(rowEl);
 		}
 		document.getElementById('container').appendChild(gridEl);
-	},
-	resize: function(width, height){
-		cell.width = width;
-		cell.height = height;
-		var grid = document.getElementById('grid');
-		grid.style.width = this.width();
-		grid.style.height = this.height();
-		var rows = document.getElementsByClassName('row');
-		for(var i = 0; i < rows.length; i++){
-			rows[i].style.width = row.width();
-			rows[i].style.height = row.height();
-		}
-		var cells = document.getElementsByClassName('cell');
-		for(var i = 0; i < cells.length; i++){
-     		cells[i].style.width = cell.width;
-     		cells[i].style.height = cell.height;
-  		}
 	}
 };
+function resize(e){
+	var evt = window.event || e;
+	var delta = evt.wheelDelta;
+	console.log(delta);
+	cell.width += delta;
+	cell.height += delta;
+	var gridEl = document.getElementById('grid');
+	gridEl.style.width = grid.width();
+	gridEl.style.height = grid.height();
+	var rows = document.getElementsByClassName('row');
+	for(var i = 0; i < rows.length; i++){
+		rows[i].style.width = row.width();
+		rows[i].style.height = row.height();
+	}
+	var cells = document.getElementsByClassName('cell');
+	for(var i = 0; i < cells.length; i++){
+     	cells[i].style.width = cell.width;
+     	cells[i].style.height = cell.height;
+  	}
+};
+document.addEventListener("mousewheel", resize, false);
 grid.addToDoc();
